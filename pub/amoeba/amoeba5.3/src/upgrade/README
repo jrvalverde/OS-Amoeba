@@ -1,0 +1,58 @@
+This file contains the instructions for upgrading the Amoeba 5.2
+directory system graph to the structure used for Amoeba 5.3.
+
+The main changes are to the location of certain administration data
+for servers and to the contents of /profile.  Furthermore, the
+directory /public has been eliminated.  Any programs containing
+references to /public should be modified to use /profile.
+
+The first step is to decide it upgrading is worth the effort.
+If you have very few users or no important data on your Amoeba 5.2
+file system then it may be less trouble to backup the
+/super/users/*/home directories and then install Amoeba 5.3 using
+the coldstart.  Once this is done, recreate the accounts of the
+users and then restore their home directories from the backup.
+NB. Do NOT restore their /profile directories.  Only their /home
+directories and possibly their /Environ files.
+
+If upgrading seems preferrable then this is how it can be done.
+The result will be slightly different from installing from the
+coldstart since the /profile will not be exactly the same but
+the differences will be minimal.
+
+
+1. This process is dangerous and may damage data if it is not done
+   correctly.  Therefore make a backup of your Amoeba 5.2 system, if
+   possible.  You can do this using starch.
+
+2. Login as Daemon (or yourself if you have the super capability.
+
+3. Install the new Amoeba binaries and kernels as per the upgrade
+   instructions in the system administration guide.  Also install
+   new soap and boot servers.
+   Do NOT reboot Amoeba yet.
+
+4. Install the script am_dir_update in /tmp.
+
+5. If your users do not use Orca and/or gax, then run the script by typing
+	/tmp/am_dir_upgrade
+   If you wish to use Orca and/or gax and all users have access to the same
+   set of processors for this then first decide which pool directory
+   is the one that they can use for gax jobs.  Then give the command
+	/tmp/am_dir_upgrade gaxpool-dir
+   where gaxpool-dir is the absolute path (not with /public in it - use
+   /super!!!) to the pool directory you have selected.
+   If different users should get access to different pools for gax then
+   do not give the gaxpool-dir argument.  Instead, add the directories
+   to peoples' /profile later by hand.
+
+6. After am_dir_upgrade has completed you will need to alter your PATH
+   environment variable.  Begin by adding /profile/util to your path.
+   Under sh or ksh you can do this with the command
+   PATH=$PATH:/profile/util.
+
+7. Next modify your .profile and Daemon's .profile, replacing "public"
+   with profile in all cases.  You will also need to advise all users
+   to modify their .profile in this way.
+
+8. Reboot to start Amoeba 5.3.

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>2.2 The sequential algorithm</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="2.2 The sequential algorithm">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00022000000000000000>2.2 The sequential algorithm</A></H2>
+<P>
+<A NAME=algorithm>&#160;</A>
+<P>
+The state space searched by RA is a directed, possibly cyclic graph.
+An edge from node <b>P</b> to node <b>Q</b> in the graph represents a move from 
+position <b>P</b> to <b>Q</b>, which is also named an unmove from position <b>Q</b> to
+position <b>P</b>. We call <b>P</b> a <em> parent</em> of <b>Q</b>, and <b>Q</b> a <em> child</em> of <b>P</b>.
+Note that a child can have many parents, since there may be many
+differents positions <b>P</b> from which a move to position <b>Q</b> can be made.
+<P>
+From some nodes no moves are possible.
+In each game, the value of such nodes, which are called <em> end nodes</em>, can
+be determined immediately from the rules of the game.
+Examples are checkmate (<b>-1</b> for the player to move) and stalemate (0) in chess.
+For each non-end node, the value can be calculated once the values of all
+children are known, or earlier, if the node can obtain the highest value
+possible
+through one of its children. In the latter case, there is no need to determine
+the values of the other children.
+<P>
+To implement RA, we store two numbers for each database entry
+(see Figure <A HREF="node18.html#entrydecl">4</A> in the Appendix):
+<UL><LI> the number of children of which the value is currently unknown,
+called <em> UnknownChildren</em>, and
+<LI> the best value so far, obtainable through one of the children whose
+value is known, called <em> BestValue</em>.
+</UL>
+Thus, if <em> UnknownChildren</em> has dropped to 0, <em> BestValue</em> is the final
+value of the position. Alternatively, once <em> BestValue</em> reaches a value
+which cannot be surpassed (e.g., value +1 in chess), then, regardless of
+the value of <em> UnknownChildren</em>, <em> BestValue</em> is the final value of the
+position.
+<P>
+Once an entry has obtained its final value, it must notify all its parents,
+so that it contributes in determining the value of those parents.
+To ensure that all children notify their parents exactly once, each entry
+contains a third field called <em> Status</em>, which can have one of three
+values: <em> Unknown</em>, <em> Known</em>, or <em> Propagated</em>.
+<em> Unknown</em> indicates that the value of the position is not yet final.
+<em> Known</em> indicates that the value is final, but its parents have not yet been
+notified. <em> Propagated</em> means that the value is final, and the parents have
+been notified.
+<P>
+The basic RA algorithm is now easy to describe.
+The algorithm consists of three phases.
+First, the database is traversed once to initialize it.
+For each node we determine the number of children.
+If the node has no children (an end node), we determine its value using
+domain knowledge
+
+and set <em> BestValue</em> to this value.
+The <em> Status</em> of the node is set to <em> Known</em>.
+Otherwise, the number of children is stored in <em> UnknownChildren</em>,
+<em> BestValue</em> is set to <b>-N</b>, and <em> Status</em> is set to <em> Unknown</em>.
+<P>
+After this initialization, the second phase begins, which does
+multiple traversals through the database.
+The database is traversed and each node whose value has
+been determined, but has not yet informed its parents, notifies all its
+parents of its value.
+Each parent subtracts 1 from <em> UnknownChildren</em> and updates <em> BestValue</em>
+if it is improved by the value of the child.
+In case the parent itself now reaches its final value, it recursively informs
+each of its own parents.
+<P>
+After this second pass through the database, all
+positions which should obtain the values <b>-N</b> or <b>N</b> have already obtained
+that value.
+For a proof of this statement, see [<A HREF="node17.html#Allis1991">1</A>].
+Thus, only positions which have values in the range <b>-N+1</b> to <b>N-1</b> may at this
+point have an unknown value.
+By making another pass through the database,
+using the knowledge that
+none of the positions with unknown value can reach a value higher than <b>N-1</b>,
+another set of positions can obtain their final value.
+After the iteration is finished, the upper bound on possible values is again
+decremented, and the process is repeated, until the upper bound is
+decremented to 0.
+It can be proven that all positions which at that point have not yet
+established their final value are draws, and should obtain the value 0
+[<A HREF="node17.html#Allis1991">1</A>].
+The third phase thus sets all remaining positions to 0.
+<P>
+Thus, an RA for a game where each position obtains a value between
+<b>-N</b> and <b>N</b>, consists of an initialization pass, <b>N</b> iterations in which
+parents are recursively notified, and a final pass in which the remaining
+entries are set to 0.
+<P>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

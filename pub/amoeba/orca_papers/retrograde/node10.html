@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>4.1 The Distributed System</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="4.1 The Distributed System">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00041000000000000000>4.1 The Distributed System</A></H2>
+<P>
+We implemented the algorithm on top of a distributed system consisting
+of 64 SPARC processors connected by a 10 Mbit/sec Ethernet.
+The system runs the Amoeba distributed operating system [<A HREF="node17.html#Tanenbaum1990">12</A>]
+and is used as a <em> processor pool</em> [<A HREF="node17.html#Tanenbaum1995">11</A>].
+The processor pool is mainly used to run computationally
+intensive jobs.
+Each node in the pool is a single-board computer (a SPARC Classic clone),
+containing a 50 Mhz SPARC processor and 32 MByte
+of local memory, but no peripheral devices (e.g., a keyboard or display).
+The system is accessible from our department's Unix workstations.
+<P>
+The processors in the pool are connected by several Ethernet segments.
+Each segment contains eight processors. The segments are connected
+by a low-cost (Kalpana) Ethernet switch, which forwards
+messages between segments with a low overhead (40 microseconds).
+The use of multiple segments increases the total bandwidth available,
+but for our application latency is more important than bandwidth.
+We have not been able to demonstrate any
+performance gain (or loss) compared to using a single segment.
+<P>
+The architecture of our system is similar to that of a collection
+of workstations on a network, which is a suitable
+platform for parallel processing [<A HREF="node17.html#Anderson1995">2</A>]. The network we use is
+significantly slower than more modern technologies (e.g., ATM), so
+our performance results could be improved by using faster networks.
+<P>
+The RA program was written in Orca [<A HREF="node17.html#Bal1991">3</A>,<A HREF="node17.html#Bal1992">4</A>].
+Orca is an imperative, type-secure, parallel language. Its communication model
+is based on shared objects. Processes on different machines can
+share objects and apply operations to these objects.
+<P>
+The implementation of Orca on Amoeba is described
+in [<A HREF="node17.html#Bhoedjang1993">5</A>,<A HREF="node17.html#Oey1995">8</A>].
+Each Orca process is implemented as a thread, which is managed by the Amoeba
+microkernel.
+An operation on a remote object is implemented as a Remote Procedure Call.
+The Orca runtime system we use runs the RPC protocol
+in user space [<A HREF="node17.html#Oey1995">8</A>], on top of unreliable (IP-like) communication
+primitives provided by Amoeba.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

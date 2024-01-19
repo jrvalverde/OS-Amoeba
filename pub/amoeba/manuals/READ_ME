@@ -1,0 +1,29 @@
+Last modified:	Tue Jun 20 09:24:20 MET DST 2000
+------------------------------------------------
+
+This directory contains the manuals for Amoeba 5.3.
+The manuals consist of 4 postscript and 4 pdf files.
+
+  File      Contents                   #pages		  size
+                               (incl. title page, etc)   (approx)
+ rel.ps   Release Notes                  38               0.2 MB
+ pro.ps   Programming Guide             445		  2.0 MB
+ sys.ps   System Administration Guide   283		  1.4 MB
+ usr.ps   User Guide                    347               1.4 MB
+
+The pdf files are included in case you don't have a postscript
+printer or viewer.
+
+The following is a sum of the documentation files in the doc directory
+Please check that the copies you have obtained have the same sums by
+running the command
+      sum *.Z *.pdf
+
+06068   809 pro.ps.Z
+16748    82 rel.ps.Z
+28332   535 sys.ps.Z
+09763   548 usr.ps.Z
+35617  2566 pro.pdf
+10170   276 rel.pdf
+12659  1923 sys.pdf
+23726  2451 usr.pdf

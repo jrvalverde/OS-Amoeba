@@ -1,0 +1,13 @@
+total 91576
+drwxrwxr-x   4 versto   infstaff     512 Jul 15  1996 .
+drwxrwxr-x   9 versto   infstaff     512 Apr  7  1998 ..
+-rw-r--r--   1 versto   infstaff    3686 Jul 15  1996 README
+drwxrwxr-x   2 versto   infstaff     512 Jul 15  1996 Split_tape
+drwxrwxr-x   2 versto   infstaff    1024 Apr 10  1996 Split_x
+-rw-rw-r--   1 versto   infstaff   43623 Jul 15  1996 aps.Z
+-rw-r--r--   1 versto   infstaff     169 Apr 10  1996 make-sun-tape
+-rw-r--r--   1 versto   infstaff 2869991 Apr 10  1996 mmdf_mc68000.tar.Z
+-rw-r--r--   1 versto   infstaff  144411 Apr 10  1996 tapefile.0.Z
+-rw-r--r--   1 versto   infstaff  945943 Apr 10  1996 tapefile.1.Z
+-rw-r--r--   1 versto   infstaff 15311989 Jul 15  1996 tapefile.2.Z
+-rw-r--r--   1 versto   infstaff 27483352 Apr 10  1996 x_mc68000.tar.Z

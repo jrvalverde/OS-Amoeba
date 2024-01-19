@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>Parallel Retrograde Analysis on a Distributed System</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="Parallel Retrograde Analysis on a Distributed System">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+  <H1>Parallel Retrograde Analysis on a Distributed System</H1>
+<P><STRONG>Henri Bal and Victor Allis <BR>
+        Dept. of Mathematics and Computer Science<BR> 
+        Vrije Universiteit<BR> 
+	De Boelelaan 1081a<BR> 
+	1081 HV  Amsterdam, The Netherlands<BR> 
+	email: bal@cs.vu.nl<BR> 
+	phone: +31 20 444 7733</STRONG><P>
+<P><STRONG></STRONG><P>
+<P>
+<H3>Abstract:</H3>
+<EM>Retrograde Analysis (RA) is an AI search technique used
+to compute endgame databases, which contain
+optimal solutions for part of the search space of a game.
+RA has been applied successfully to several
+games, but its usefulness is restricted by the huge amount of
+CPU time and internal memory it requires.
+<P>
+We present a parallel distributed algorithm for RA that addresses
+these problems. RA is hard to parallelize efficiently, because the
+communication overhead potentially is enormous. We show that 
+the overhead can be reduced drastically using message combining.
+<P>
+We implemented the algorithm on an Ethernet-based distributed system.
+For one example game (awari), we have computed a large database
+in  50 minutes on 64 processors,
+whereas one machine took 40 hours (a speedup of 48).
+An even larger database (computed in half a day) would have required
+400 MByte of internal memory on a uniprocessor and would compute
+for weeks.
+<P>
+<b> Keywords:</b> game-tree search, retrograde analysis, distributed systems.
+<P>
+<HR>
+<STRONG>To print this paper, please use the <A HREF="sc95.ps">Postscript version</A>.</STRONG>
+<HR>
+</EM><P>
+<BR>
+<UL> 
+<LI> <A NAME=tex2html15 HREF="node1.html#SECTION00010000000000000000">1 Introduction</A>
+<LI> <A NAME=tex2html16 HREF="node2.html#SECTION00020000000000000000">2 Sequential Retrograde Analysis</A>
+<UL> 
+<LI> <A NAME=tex2html17 HREF="node3.html#SECTION00021000000000000000">2.1 Assumptions</A>
+<LI> <A NAME=tex2html18 HREF="node4.html#SECTION00022000000000000000">2.2 The sequential algorithm</A>
+</UL> 
+<LI> <A NAME=tex2html19 HREF="node5.html#SECTION00030000000000000000">3 A Parallel Retrograde Analysis Algorithm</A>
+<UL> 
+<LI> <A NAME=tex2html20 HREF="node6.html#SECTION00031000000000000000">3.1 Overview</A>
+<LI> <A NAME=tex2html21 HREF="node7.html#SECTION00032000000000000000">3.2 Description of the Parallel Algorithm</A>
+<LI> <A NAME=tex2html22 HREF="node8.html#SECTION00033000000000000000">3.3 Implementation Issues</A>
+</UL> 
+<LI> <A NAME=tex2html23 HREF="node9.html#SECTION00040000000000000000">4 Implementation on a distributed system</A>
+<UL> 
+<LI> <A NAME=tex2html24 HREF="node10.html#SECTION00041000000000000000">4.1 The Distributed System</A>
+<LI> <A NAME=tex2html25 HREF="node11.html#SECTION00042000000000000000">4.2 Implementation Issues</A>
+</UL> 
+<LI> <A NAME=tex2html26 HREF="node12.html#SECTION00050000000000000000">5 Performance Measurements</A>
+<UL> 
+<LI> <A NAME=tex2html27 HREF="node13.html#SECTION00051000000000000000">5.1 Awari</A>
+<LI> <A NAME=tex2html28 HREF="node14.html#SECTION00052000000000000000">5.2 Performance for Awari</A>
+</UL> 
+<LI> <A NAME=tex2html29 HREF="node15.html#SECTION00060000000000000000">6 Discussion and Related Work</A>
+<LI> <A NAME=tex2html30 HREF="node16.html#SECTION00070000000000000000"> Acknowledgments</A>
+<LI> <A NAME=tex2html31 HREF="node17.html#SECTION00080000000000000000">References</A>
+<LI> <A NAME=tex2html32 HREF="node18.html#SECTION00090000000000000000"> Appendix</A>
+</UL>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

@@ -1,0 +1,16 @@
+total 318
+drwxrwxr-x   5 ast      amoeba       512 Jun 20  2000 .
+drwxr-sr-x  63 0        other       1536 Jan 11  2001 ..
+-rw-rw-r--   1 versto   infstaff    1344 Dec  1  1998 COPYRIGHT
+-rw-rw-r--   1 versto   infstaff   39791 Jun 20  2000 Intro.pdf
+-rw-rw-r--   1 108      staff      35838 Apr 11  1996 Intro.ps.Z
+lrwxrwxrwx   1 versto   infstaff       9 Jun  7  2000 LICENCE -> COPYRIGHT
+-rw-rw-r--   1 ast      infstaff     416 Jan 19  1996 README
+-rw-r--r--   1 versto   infstaff     772 Apr 11  2001 amftp_intro.html
+-rw-r--r--   1 versto   infstaff    2495 Jul 24 10:27 amoeba.html
+drwxrwxr-x   9 versto   infstaff     512 Apr  7  1998 amoeba5.3
+-rw-r--r--   1 versto   infstaff     799 Apr 11  2001 index.html
+-rw-r--r--   1 versto   infstaff    1947 Nov 30  1995 logo.gif
+drwxrwxr-x   2 ast      infstaff     512 Jun 20  2000 manuals
+drwxr-xr-x   3 bal      infstaff    1536 Aug 24 10:57 orca_papers
+-rw-r--r--   1 versto   infstaff   67668 Nov 30  1995 zoo.gif

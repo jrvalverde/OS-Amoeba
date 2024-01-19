@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>4.2 Implementation Issues</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="4.2 Implementation Issues">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00042000000000000000>4.2 Implementation Issues</A></H2>
+<P>
+The buffers used by a processor are implemented as a single Orca object, stored
+on that processor.
+
+<P>
+The communication thread repeatedly gets data from an output buffer
+and puts these data in the input buffer of the destination processor.
+The latter operation results in communication over the network (a Remote
+Procedure Call), since it accesses a remote processor's object.
+The worker thread puts update messages into the output buffers and
+also periodically checks its input buffer.
+These operations are local.
+The Orca runtime system takes care of mutual exclusion synchronization
+of the shared objects, using Amoeba's locking primitives.
+<P>
+An important implementation issue is the selection of the output buffer
+for transmission to a remote machine.
+Our implementation tries to send as much data as possible in one message
+(to reduce communication overhead), so it always selects the buffer
+containing the largest number of update messages.
+To avoid sending small messages, it also uses a <em> minimum message size</em>,
+currently set to 20.
+If the communication thread tries to get data while all buffers
+contain fewer than 20 messages, the thread blocks until a buffer with
+enough messages is available.
+An exception is if the worker thread on the same processor is idle.
+In this case, the processor does not have anything else to do, so
+it sends out buffers of any size.
+This typically occurs at the end of an iteration.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

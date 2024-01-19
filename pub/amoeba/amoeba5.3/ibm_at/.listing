@@ -1,0 +1,17 @@
+total 107672
+drwxrwxr-x   4 versto   infstaff     512 May  1  1997 .
+drwxrwxr-x   9 versto   infstaff     512 Apr  7  1998 ..
+-rw-r--r--   1 versto   infstaff    4124 Jul 30  1996 README
+drwxrwxr-x   2 versto   infstaff     512 Jul 15  1996 Split_bin
+drwxrwxr-x   2 versto   infstaff    1024 Apr 10  1996 Split_x
+-rw-r--r--   1 versto   infstaff 1474560 Jul 15  1996 amoeba.0
+-rw-r--r--   1 versto   infstaff 1474560 Jul 15  1996 amoeba.1
+-rw-r--r--   1 versto   infstaff   43500 Jul 15  1996 aps.Z
+-rw-r--r--   1 versto   infstaff 16983704 Jul 15  1996 bintree.tar.Z
+-rw-rw-r--   1 versto   infstaff  119219 Jul 30  1996 ftpd.Z
+-rw-r--r--   1 versto   infstaff 1474560 Apr  2  1996 kernels
+-rw-rw-r--   1 versto   infstaff  437076 May  1  1997 libamoeba.a
+-rw-r--r--   1 versto   infstaff 3012272 Apr 10  1996 mmdf_i80386.tar.Z
+-rw-r--r--   1 versto   infstaff 1474560 Jul 15  1996 ramdisk.0
+-rw-r--r--   1 versto   infstaff 1474560 Jul 15  1996 ramdisk.1
+-rw-r--r--   1 versto   infstaff 27011317 Apr 10  1996 x_i80386.tar.Z

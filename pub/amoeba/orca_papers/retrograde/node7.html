@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>3.2 Description of the Parallel Algorithm</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="3.2 Description of the Parallel Algorithm">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00032000000000000000>3.2 Description of the Parallel Algorithm</A></H2>
+<P>
+Each processor in our algorithm executes the same code on different
+parts of the database.
+The data structure used for the database is the same as for the
+sequential algorithm, except that each processor contains only a
+part of the entire array.
+The processors also contain buffers for sending and receiving update messages,
+shown in Figure <A HREF="node18.html#bufdecl">5</A> (in the Appendix).
+<P>
+An element of a buffer represents one <em> update</em> message and specifies
+the address of a parent entry and the final value
+of the child that is sending the message. 
+Each processor contains one input buffer containing messages
+sent to it and one output buffer for every other processor.
+<P>
+Every processor uses two threads.
+A <em> worker thread</em> performs the actual computations.
+Whenever this thread has determined the final value for an entry,
+it generates messages for the parents of this entry and stores
+them in the appropriate output buffers.
+A second thread, the <em> communication thread</em> repeatedly
+copies messages from these buffers over the network to the input buffers
+of other processors, where they will be picked up by the worker threads.
+The overall structure of the parallel algorithm is illustrated in Figure
+<A HREF="node7.html#overall">1</A>.
+Below, we explain the algorithms for the worker and
+communication threads in more detail.
+<P>
+<P><A NAME=130>&#160;</A><A NAME=overall>&#160;</A><IMG  ALIGN=BOTTOM ALT="" SRC="img2.gif">
+<BR><STRONG>Figure 1:</STRONG> Overall structure of the parallel algorithm.<BR>
+<P>
+<P>
+A worker thread (see Figure <A HREF="node18.html#workthread">7</A>) first initializes all
+entries in its part of the
+database, as discussed in Section <A HREF="node4.html#algorithm">2.2</A>.
+Next, it performs two tasks:
+<UL><LI> It traverses the local partition of the database, and checks
+      for each entry whether its final value has been determined,
+      as explained in Section <A HREF="node4.html#algorithm">2.2</A>.
+<LI> It processes the messages in the input buffer.
+</UL>
+These two tasks are interleaved, but to
+avoid congestion in the input buffer, any messages currently in the buffer are
+always serviced before processing the next entry in the local partition.
+<P>
+Each message in the input buffer contains the final value of a child
+of an entry stored on the current processor (see Figure <A HREF="node18.html#processinput">8</A>).
+To process such a message, the worker thread checks if the new
+value is better than the entry's current value, and if so, updates
+the field <em> BestValue</em> (see Figure <A HREF="node18.html#handle">9</A>).
+Furthermore, the worker thread subtracts one from <em> UnknownChildren</em>.
+If all children of an entry have now reported their final value
+or if no higher score can be attained the final value for the entry
+has been determined.
+<P>
+Whenever the worker thread has determined the final value of an entry
+(either while processing the local part of the database or
+while processing incoming messages), it needs to generate outgoing
+messages.
+The worker thread determines the parents of the entry by calling the
+game's <em> unmove</em> function (see Figure <A HREF="node18.html#propagate">10</A>).
+For each parent, the worker adds one message to the appropriate
+output buffer.
+The value field in the message is determined by the value of
+the entry and the points scored by the move from the parent to the entry
+(as explained in Section <A HREF="node3.html#assumption">2.1</A>).
+If the parent entry is stored on the same processor, the
+buffering mechanism is avoided and the worker thread immediately
+updates the parent entry itself.
+<P>
+The final step of the worker thread is to make one more pass
+through the local partition of the database and set all entries whose values
+have not been determined yet to zero.
+This final pass was explained in Section <A HREF="node4.html#algorithm">2.2</A>.
+<P>
+The algorithm for the communication thread (Figure <A HREF="node18.html#communication">11</A>)
+is simple.
+The thread repeatedly selects a non-empty output buffer
+and then sends all data in the buffer
+to the input buffer on the destination processor, using a single message.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

@@ -1,0 +1,63 @@
+pdcs94
+     I. Athanasiu and H.E. Bal:
+     "The Arc Consistency Problem: a Case Study in Parallel Programming
+     with Shared Objects", 7th InternationaL Conference on Parallel and
+     Distributed Computing Systems, Las Vegas, Nevada, Oct. 1994.
+
+wtc94
+     H.P. Heinzle and H.E. Bal and K. Langendoen:
+     "Implementing Object-Based Distributed Shared Memory on Transputers",
+     Transputer Applications and Systems '94,
+     A. De Gloria and M.R. Jane and D. Marini editors, IOS Press, Sept. 1994.
+
+ada9x
+     Bal, H.E.:
+     " Comparing data synchronization in Ada 9X and Orca",
+     minor revision of: report IR-345, Vrije Universiteit, Amsterdam, Dec. 1993.
+
+oopsla93
+      Bal, H.E. and Kaashoek, M.F.:
+      "Object Distribution in Orca using Compile-Time and Run-Time Techniques",
+      Conference on Object-Oriented Programming Systems, Languages and 
+      Applications (OOPSLA '93), Sep. 1993, Washington D.C.,  pp. 162-177.
+
+sedms93
+      Bhoedjang, R., Ruhl, T., Hofman, R., Langendoen, K, Bal, H., and
+      Kaashoek, M.F.:
+      "Panda: A Portable Platform to Support Parallel Programming Languages,"
+      Symposium on Experiences with Distributed and Multiprocessor Systems
+      IV, San Diego, Sep. 1993, pp. 213-226.
+
+cpe92
+      Bal, H.E., Kaashoek, M.F., Tanenbaum, A.S., and Jansen, J.:
+      "Replication Techniques for Speeding up Parallel Applications on 
+      Distributed Systems"
+      Concurrency Practice & Experience, Vol. 4, No. 5, Aug. 1992, pp. 337-355.
+
+ieee92
+      Tanenbaum, A.S., Kaashoek, M.F., and Bal, H.E.:
+      "Parallel Programming using Shared Objects and Broadcasting", 
+      IEEE Computer, Vol. 25, No. 8, Aug. 1992, pp. 10-19.
+
+spe92
+      Levelt, W.G.,  Kaashoek, M.F. Bal, H.E., and Tanenbaum, A.S.:
+      "A Comparison of Two Paradigms for Distributed Shared Memory",
+      Software--Practice and Experience, vol. 22, Nov. 1992, pp. 985-1010.
+
+tse92
+      Bal. H.E., Kaashoek, M.F., and Tanenbaum A.S.:
+      "Orca: A Language for Parallel Programming of Distributed Systems", 
+      IEEE Transactions on Software Engineering, 
+      vol. 18, No. 3, March 1992, pp. 190-205.
+
+sedms92
+      Kaashoek, M.F., Michiels, R., Bal. H.E., and Tanenbaum A.S,:
+      "Transparent Fault-tolerance in Parallel Orca Programs"
+      Symposium on Experiences with Distributed and Multiprocessor
+      Systems III, Newport Beach, March 1992, pp. 297-312
+
+europen91
+      Bal, H.E.:
+      "A Comparative Study of Five Parallel Programming Languages,"
+      EurOpen Spring 1991 Conference on Open Distributed Systems, Tromso,
+      20-24 May 1991, pp. 209-228 (Best Paper Award).

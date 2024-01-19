@@ -1,0 +1,124 @@
+frontiers96.ps.Z
+   Langendoen, K.G., Romein, J., Bhoedjang, R.A.F., and Bal, H.E.:
+   "Integrating Polling, Interrupts, and Thread Management",
+   The 6th Symposium on the Frontiers of Massively Parallel Computation
+   (Frontiers '96), Annapolis, Maryland, Oct. 1996.
+
+oopsla96.ps.Z
+   Ben Hassen, S., Athanasiu, I., and Bal, H.E.:
+   "A Flexible Operation Execution Model for Shared Distributed Objects",
+   Conference on Object-Oriented Programming Systems, Languages and
+   Applications (OOPSLA '96), San Jose, CA, Oct. 1996.
+
+orca96.ps.Z 
+    Bal, H.E., Bhoedjang, R., Hofman, R., Jacobs, C., Langendoen, K., Ruhl, T.,
+    and Kaashoek, M.F.,:
+    "Orca: a Portable User-Level Shared Object System",
+    Technical Report IR-408, Vrije Universiteit, Amsterdam, June 1996. 
+
+ica3pp96.ps.Z
+    Hofman, R., Langendoen, K., and Bal, H.E.,:
+    "Visualizing High-Level Communication and Synchronization",
+    IEEE Int. Conference on Algorithms and Architectures for Parallel Processing
+    (ICA3PP), Singapore, pp. 37-43, June 11-13, 1996
+jpdc97.ps.Z 
+    Bal, H.E., Bhoedjang, R., Hofman, R., Jacobs, C., Langendoen, K., Ruhl, T.,
+    and Verstoep, K.:
+   "Performance of a High-Level Parallel Language on a High-Speed Network",
+    Technical Report IR-400, Vrije Universiteit, Amsterdam, April 1996. 
+     (to appear in Journal of Parallel and Distributed Computing, Febr. 1997). 
+ics96.ps.Z 
+    Ben Hassen, S. and Bal, H.E.:
+    "Integrating Task and Data Parallelism Using Shared Objects",
+    10th ACM International Conference on Supercomputing, Philadelphia, PA,
+    May 1996. 
+
+hicss96.ps.gz 
+    R.A.F. Bhoedjang and K.G. Langendoen:
+    "Friendly and Efficient Message Handling",
+    Proc. of the 29th Annual Hawaii International Conference of System Sciences
+    (HICSS-29), January 1996. 
+
+icpp96
+     Verstoep, K., Langendoen, K., and Bal, H.E.:
+     "Efficient Reliable Multicast on Myrinet",
+     1996 Int. Conference on Parallel Processing,
+     Bloomingdale, IL, Aug. 1996.
+
+dcs95
+     Oey, M. Langendoen, K., and Bal, H.E.
+     "Comparing Kernel-Space and User-Space Communication Protocols on Amoeba",
+     15th International Conference on Distributed Computing Systems",
+     Vancouver, B.C., Canada, May 1995
+
+retrograde95
+     Bal, H.E. and Allis, L.V.
+     "Parallel Retrograde Analysis on a Distributed System",
+     Vrije Universiteit, Amsterdam, March 1995.
+
+pdcs94
+     I. Athanasiu and H.E. Bal:
+     "The Arc Consistency Problem: a Case Study in Parallel Programming
+     with Shared Objects", 7th InternationaL Conference on Parallel and
+     Distributed Computing Systems, Las Vegas, Nevada, Oct. 1994.
+
+wtc94
+     H.P. Heinzle and H.E. Bal and K. Langendoen:
+     "Implementing Object-Based Distributed Shared Memory on Transputers",
+     Transputer Applications and Systems '94,
+     A. De Gloria and M.R. Jane and D. Marini editors, IOS Press, Sept. 1994.
+
+ada9x
+     Bal, H.E.:
+     " Comparing data synchronization in Ada 9X and Orca",
+     minor revision of: report IR-345, Vrije Universiteit, Amsterdam, Dec. 1993.
+
+oopsla93
+      Bal, H.E. and Kaashoek, M.F.:
+      "Object Distribution in Orca using Compile-Time and Run-Time Techniques",
+      Conference on Object-Oriented Programming Systems, Languages and 
+      Applications (OOPSLA '93), Sep. 1993, Washington D.C.,  pp. 162-177.
+
+sedms93
+      Bhoedjang, R., Ruhl, T., Hofman, R., Langendoen, K, Bal, H., and
+      Kaashoek, M.F.:
+      "Panda: A Portable Platform to Support Parallel Programming Languages,"
+      Symposium on Experiences with Distributed and Multiprocessor Systems
+      IV, San Diego, Sep. 1993, pp. 213-226.
+
+cpe92
+      Bal, H.E., Kaashoek, M.F., Tanenbaum, A.S., and Jansen, J.:
+      "Replication Techniques for Speeding up Parallel Applications on 
+      Distributed Systems"
+      Concurrency Practice & Experience, Vol. 4, No. 5, Aug. 1992, pp. 337-355.
+
+ieee92
+      Tanenbaum, A.S., Kaashoek, M.F., and Bal, H.E.:
+      "Parallel Programming using Shared Objects and Broadcasting", 
+      IEEE Computer, Vol. 25, No. 8, Aug. 1992, pp. 10-19.
+
+spe92
+      Levelt, W.G.,  Kaashoek, M.F. Bal, H.E., and Tanenbaum, A.S.:
+      "A Comparison of Two Paradigms for Distributed Shared Memory",
+      Software--Practice and Experience, vol. 22, Nov. 1992, pp. 985-1010.
+
+tse92
+      Bal. H.E., Kaashoek, M.F., and Tanenbaum A.S.:
+      "Orca: A Language for Parallel Programming of Distributed Systems", 
+      IEEE Transactions on Software Engineering, 
+      vol. 18, No. 3, March 1992, pp. 190-205.
+
+sedms92
+      Kaashoek, M.F., Michiels, R., Bal. H.E., and Tanenbaum A.S,:
+      "Transparent Fault-tolerance in Parallel Orca Programs"
+      Symposium on Experiences with Distributed and Multiprocessor
+      Systems III, Newport Beach, March 1992, pp. 297-312
+
+europen91
+      Bal, H.E.:
+      "A Comparative Study of Five Parallel Programming Languages,"
+      EurOpen Spring 1991 Conference on Open Distributed Systems, Tromso,
+      20-24 May 1991, pp. 209-228 (Best Paper Award).
+
+refman
+      Orca reference manual

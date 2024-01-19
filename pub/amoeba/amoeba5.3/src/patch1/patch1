@@ -1,0 +1,63 @@
+*** /tmp/mkpatch_SRC15882	Fri Jul 12 09:50:16 1996
+--- src/admin/scripts/newsoapgraph	Fri Jul 12 09:50:15 1996
+***************
+*** 1,8 ****
+  #!/bin/sh
+  #	
+! #	@(#)newsoapgraph	1.12	96/03/19 13:07:22
+  #
+! # Copyright 1994 Vrije Universiteit, The Netherlands.
+  # For full copyright and restrictions on use see the file COPYRIGHT in the
+  # top level of the Amoeba distribution.
+  
+--- 1,8 ----
+  #!/bin/sh
+  #	
+! #	@(#)newsoapgraph	1.13	96/07/12 09:50:14
+  #
+! # Copyright 1996 Vrije Universiteit, The Netherlands.
+  # For full copyright and restrictions on use see the file COPYRIGHT in the
+  # top level of the Amoeba distribution.
+  
+***************
+*** 94,99 ****
+--- 94,100 ----
+  std_restrict super/cap 06 profile/cap
+  std_restrict super/util 06 profile/util
+  std_restrict super/pool 06 profile/pool
++ std_restrict super/hosts 06 profile/hosts
+  std_restrict super/module 06 profile/module
+  std_restrict super/group/system 06 profile/group/system
+  std_restrict super/group/users 06 profile/group/users
+*** /tmp/mkpatch_SRC18946	Fri Jul 12 14:49:39 1996
+--- src/util/aps/aps.c	Fri Jul 12 14:49:38 1996
+***************
+*** 1,4 ****
+! /*	@(#)aps.c	1.8	96/02/27 13:07:05 */
+  /*
+   * Copyright 1994 Vrije Universiteit and Stichting Mathematisch Centrum,
+   * The Netherlands.
+--- 1,4 ----
+! /*	@(#)aps.c	1.9	96/07/12 14:49:37 */
+  /*
+   * Copyright 1994 Vrije Universiteit and Stichting Mathematisch Centrum,
+   * The Netherlands.
+***************
+*** 719,726 ****
+  int   this_user;
+  {
+  	static int header_listed = 0;
+  	char session_path[256];
+- 	struct proctab pt[MAXNPROC];
+  	int i, nproc;
+  	capability sescap;
+  	errstat err;
+--- 719,726 ----
+  int   this_user;
+  {
+  	static int header_listed = 0;
++ 	static struct proctab pt[MAXNPROC];
+  	char session_path[256];
+  	int i, nproc;
+  	capability sescap;
+  	errstat err;

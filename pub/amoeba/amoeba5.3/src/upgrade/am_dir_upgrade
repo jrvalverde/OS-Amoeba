@@ -1,0 +1,131 @@
+#!/bin/sh
+#
+#	The function of this script is to convert the directory graph
+#	from the Amoeba 5.2 layout to the Amoeba 5.3 layout.  This is
+#	a very complicated and dangerous action which is difficult to
+#	undo.
+#		Caveat Emptor!
+#
+#	The command takes one optional argument.  This is the pool
+#	directory that will be used for starting gax jobs.  If this is
+#	not specified then no gaxpool entries will be made in /profile.
+#	They will have to be added by hand when needed in this case.
+
+if [ ! -d /super ]
+then
+    if [ ! -d /profile ]
+    then
+	echo "This command has to be run under Amoeba."
+    else
+	echo "This command requires the super capability to work properly."
+    fi
+    exit 1
+fi
+
+if [ -d /super/admin/module ]
+then
+    cat << %%
+The directory upgrade to Amoeba 5.3 appears to already have been (partially)
+executed.  If it has not been successfully completed then you will have to
+do the rest by hand or make your own script to finish the job.
+%%
+    exit 1
+fi
+
+
+case $# in
+0)  GAXPOOL=""
+    ;;
+1)  GAXPOOL=$1
+    if [ -z "$GAXPOOL" -o ! -d $GAXPOOL ]
+    then
+	echo "USAGE: $0 [gaxpool-directory]"
+	exit 1
+    fi
+    ;;
+*)  echo "USAGE: $0 [gaxpool-directory]"
+    exit 1
+    ;;
+esac
+
+PATH=$PATH:/profile/util
+
+#
+# A little more paranoia ...
+#
+answ=""
+while [ "$answ" != y -a "$answ" != Y ]
+do
+    cat << %%
+    This command will attempt to upgrade an Amoeba 5.2 directory graph layout
+    to an Amoeba 5.3 directory graph layout.
+%%
+    echo -n "Are you sure you wish to continue? [y or n] "
+    read answ
+    case "$answ" in
+    n|N) echo "OK.  Stopping."
+        exit 1
+        ;;
+    esac
+done
+
+echo "Adjusting system directories"
+mkd /super/admin/module
+cd /super/admin/module
+mkd ipsvr
+mkd reserve
+if [ -d /super/module/fifo ]
+then
+    mv /super/module/fifo .
+fi
+mv /super/module/om .
+mv /super/module/run .
+if [ -d /super/module/sak ]
+then
+    mv /super/module/sak .
+fi
+
+if [ ! -d /super/group ]
+then
+    mkd /super/group
+fi
+get /super/users | put /super/group/users
+
+# Now that we have sorted out the system data, we have to
+# remake the /profile of each user.  We also have to remove
+# all tricted inks to /super, thus introducing all sorts of
+# grief for certain classes of loser.
+
+cd /super/users
+echo "Adjusting users' profile directories"
+for U in *
+do
+   (
+    cd $U
+    del -d public
+    cd profile
+    if [ ! -d group ]
+    then
+	if mkd group
+	then
+	    std_restrict /super/group/users 0C group/users
+	else
+	    echo "Cannot create directory $U/profile/group"
+	fi
+    fi
+    if [ ! -d hosts ]
+    then
+	std_restrict /super/hosts 06 hosts
+    fi
+    mkd reserve
+    std_restrict pool FF reserve/pool
+    if [ -d users ]
+    then
+	del -d users
+    fi
+    if [ -n "$GAXPOOL" ]
+    then
+	std_restrict $GAXPOOL 06 gaxpool
+    fi
+   )
+done

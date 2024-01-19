@@ -1,0 +1,16 @@
+
+		PATCH 1
+
+This patch makes the following changes:
+
+	1. Fixes newsoapgraph(A) to create /profile/hosts for Daemon.
+	2. Corrects a stack overflow bug in aps(U).
+
+patch1.README	- this file
+patch1.files	- the list of files affected by the patch
+patch1		- the diffs to make the patch
+
+Apply the diffs using the following commands:
+
+	cd `amdir`
+	patch -N < patch1

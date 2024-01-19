@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>3.1 Overview</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="3.1 Overview">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00031000000000000000>3.1 Overview</A></H2>
+<P>
+We parallelize retrograde analysis by partitioning the elements of the
+database among the available processors.
+Each processor is responsible for computing the value of
+the entries assigned to it.
+The value of an entry is updated whenever new information about the entry
+is obtained from its children.
+As soon as the final value of an entry has been determined, this value
+is sent to all processors containing
+a parent of the entry. These processors use this value to update the
+values of the parents.
+We call such messages <em> update messages</em>.
+<P>
+A major problem with this algorithm
+is the communication overhead due to the update messages.
+Each entry obtains its final value once and then has to inform
+all its parents.
+As explained in Section <A HREF="node1.html#introduction">1</A>, this may lead to a
+very large number of messages and thus to poor performance.
+<P>
+The key idea in solving this problem is the observation that
+a processor that sends the final value of an entry to its parent
+does not depend on the result of this operation.
+Also, the order in which the values arrive at the receiving processors
+does not matter.
+As a result, it is possible to defer sending the update messages.
+<P>
+All outgoing update messages are therefore buffered at the sending processor.
+By the time the messages are actually sent, they can usually be combined with
+other messages for the same destination processor.
+This <em> message combining</em> optimization results in fewer (but larger)
+messages.
+On most networks this is far more efficient, since messages have a high
+start-up cost.
+As we will see, this optimization drastically reduces
+the communication overhead.
+In addition, the actual message is sent asynchronously,
+so the process that performs the computations
+can continue while the message is transmitted over the network and handled
+by the receiving processor.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

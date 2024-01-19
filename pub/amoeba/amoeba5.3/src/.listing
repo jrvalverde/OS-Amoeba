@@ -1,0 +1,9 @@
+total 15284
+drwxrwxr-x   3 versto   infstaff     512 Jul 30  1996 .
+drwxrwxr-x   9 versto   infstaff     512 Apr  7  1998 ..
+-rw-r--r--   1 versto   infstaff    2032 Jul 30  1996 README
+-rw-r--r--   1 versto   infstaff 7793589 Apr  4  1996 SRC.tar.Z
+drwxrwxr-x   2 versto   infstaff     512 Apr  4  1996 Split_src
+-rw-r--r--   1 versto   infstaff    1993 Jul 12  1996 patch1.tar.Z
+-rw-rw-r--   1 versto   infstaff    6950 Jul 30  1996 patch2.tar.Z
+-rw-r--r--   1 versto   infstaff    3278 Apr 11  1996 upgrade.tar.Z

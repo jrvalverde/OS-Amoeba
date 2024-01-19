@@ -1,0 +1,10 @@
+Amoeba is a distributed operating system intended to connect a large number
+of computers together in a transparent way.  This directory contains:
+
+	Intro.ps.Z:	An introduction to Amoeba and how to obtain it
+	manuals:	A directory with all the Amoeba manuals
+	amoeba_papers:	A directory with published papers on Amoeba
+	orca_papers:	A directory with published papers on Orca
+
+Both the 'papers' and the 'orca' directories have a file 'INDEX' telling
+what is present in the directories.  

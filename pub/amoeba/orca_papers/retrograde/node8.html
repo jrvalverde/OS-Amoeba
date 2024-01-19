@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>3.3 Implementation Issues</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="3.3 Implementation Issues">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00033000000000000000>3.3 Implementation Issues</A></H2>
+<P>
+Important implementation issues are when to send messages
+(i.e., when to activate the communication thread) and which
+buffer to select.
+The optimal strategy is game-dependent.
+In general, if messages are sent too soon, the algorithm will send
+many small messages, resulting in a high communication overhead.
+On the other hand, if messages are sent too late, the receiving
+processors may run out of work, resulting in wasted CPU time.
+Another issue is how to partition
+the database among the available processors, which has an impact
+on load balancing.
+These issues will be discussed in Section <A HREF="node14.html#awariperf">5.2</A>.
+<P>
+The algorithm uses processes that repeatedly generate work for each other.
+Each update message may result in new work, since the value in the
+message may be used to establish the final value of the parent entry.
+Therefore, it is difficult to determine when the algorithm can
+terminate a given iteration.
+Termination detection is required at
+the end of each iteration of the algorithm, since all processes must
+always be working on the same iteration.
+We have implemented a reasonably efficient termination detection algorithm,
+but the description of the algorithm is beyond the scope of this paper.
+<P>
+
+<P>
+Another issue we have ignored so far is deadlock. In theory, deadlock
+could occur if the input and output buffers get full. In this case,
+some worker and communication threads might block. If a cycle
+exists among such blocked threads, a deadlock situation might arise.
+To prevent this situation, we dynamically adjust the sizes of the
+buffers, so that threads do not have to block while putting data into
+a buffer.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

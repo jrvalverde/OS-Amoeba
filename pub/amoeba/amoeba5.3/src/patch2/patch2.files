@@ -1,0 +1,5 @@
+R doc/ref_manual/sysadmin/config/new_users.n
+R doc/ref_manual/sysadmin/install/at386.n
+R doc/ref_manual/sysadmin/manpages/newuser.n
+R src/admin/scripts/newsoapgraph
+R src/admin/ip/ftpd/am_conn.c

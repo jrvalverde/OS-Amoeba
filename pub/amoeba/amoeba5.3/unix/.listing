@@ -1,0 +1,11 @@
+total 15986
+drwxrwxr-x   3 versto   infstaff     512 Nov  7  1997 .
+drwxrwxr-x   9 versto   infstaff     512 Apr  7  1998 ..
+-rw-rw-r--   1 versto   infstaff  631901 Nov  7  1997 ACK_386.sun4.tar.Z
+lrwxrwxrwx   1 versto   infstaff      11 Jun  7  2000 IRIX_NOTE -> ULTRIX_NOTE
+-rw-r--r--   1 versto   infstaff    3142 Apr  9  1996 README
+-rw-r--r--   1 versto   infstaff 3825439 Apr  9  1996 Sol_bin.tar.Z
+-rw-r--r--   1 versto   infstaff  145911 Apr  9  1996 Sol_sparc_drv.tar.Z
+-rw-r--r--   1 versto   infstaff 3529039 Apr  9  1996 SunOS_4.tar.Z
+-rw-r--r--   1 versto   infstaff     333 Jun 26  1996 ULTRIX_NOTE
+drwxrwxr-x   2 versto   infstaff     512 Oct  6  1997 sol5.5-sun4m

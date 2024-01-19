@@ -1,0 +1,264 @@
+*** /tmp/mkpatch_SRC2267	Fri Jul 19 15:36:05 1996
+--- doc/ref_manual/sysadmin/config/new_users.n	Fri Jul 19 15:36:04 1996
+***************
+*** 1,4 ****
+! .\"	@(#)new_users.n	1.5	96/02/15 17:02:04
+  .\"
+  .\" Copyright 1996 Vrije Universiteit, The Netherlands.
+  .\" For full copyright and restrictions on use see the file COPYRIGHT in the
+--- 1,4 ----
+! .\"	@(#)new_users.n	1.6	96/07/19 15:36:03
+  .\"
+  .\" Copyright 1996 Vrije Universiteit, The Netherlands.
+  .\" For full copyright and restrictions on use see the file COPYRIGHT in the
+***************
+*** 7,12 ****
+--- 7,30 ----
+  .nH 1 "Adding New Users" nobp
+  .LP
+  .kW "adding users"
++ Before new users can be added to \*(Am it is first necessary to have
++ at least one processor pool which can be allocated to users.
++ The installation process created a pool called
++ .I /super/pools/public
++ which is a link to
++ .I /super/pool .
++ You may wish to create other pools which restrict the access of particular
++ users to some subset of the available processors.
++ See the information about the
++ .I run (A)
++ server for details about processor pools.
++ The directory names in
++ .I /super/pools
++ are the names of the processor pools which can be used with the
++ .B \-p
++ option of
++ .I newuser (A).
++ .LP
+  Giving new users access to \*(Am is extremely simple.
+  It has two aspects to it.
+  The first is to create a home directory and the relevant information
+*** /tmp/mkpatch_SRC2319	Fri Jul 19 15:36:43 1996
+--- doc/ref_manual/sysadmin/install/at386.n	Fri Jul 19 15:36:42 1996
+***************
+*** 1,4 ****
+! .\"	@(#)at386.n	1.23	96/02/15 17:03:27
+  .\"
+  .\" Copyright 1996 Vrije Universiteit, The Netherlands.
+  .\" For full copyright and restrictions on use see the file COPYRIGHT in the
+--- 1,4 ----
+! .\"	@(#)at386.n	1.24	96/07/19 15:36:41
+  .\"
+  .\" Copyright 1996 Vrije Universiteit, The Netherlands.
+  .\" For full copyright and restrictions on use see the file COPYRIGHT in the
+***************
+*** 13,19 ****
+  			new hardware, improvements in readability
+  .aE
+  .bp
+! .nH 2 "Installing \*(Am on Intel 80386 Systems"
+  .LP
+  .kW i80386
+  .kW i80486
+--- 13,19 ----
+  			new hardware, improvements in readability
+  .aE
+  .bp
+! .nH 2 "Installing \*(Am on Intel 80x86 Systems"
+  .LP
+  .kW i80386
+  .kW i80486
+*** /tmp/mkpatch_SRC2411	Fri Jul 19 15:36:54 1996
+--- doc/ref_manual/sysadmin/manpages/newuser.n	Fri Jul 19 15:36:53 1996
+***************
+*** 1,4 ****
+! .\"	@(#)newuser.n	1.7	96/02/15 17:48:55
+  .\"
+  .\" Copyright 1996 Vrije Universiteit, The Netherlands.
+  .\" For full copyright and restrictions on use see the file COPYRIGHT in the
+--- 1,4 ----
+! .\"	@(#)newuser.n	1.8	96/07/19 15:36:53
+  .\"
+  .\" Copyright 1996 Vrije Universiteit, The Netherlands.
+  .\" For full copyright and restrictions on use see the file COPYRIGHT in the
+***************
+*** 87,92 ****
+--- 87,101 ----
+  Specifies the pool directory for the new user.
+  The name must be relative to the directory
+  .I /super/pools .
++ Note that before creating the first user it is necessary to create the
++ directory
++ .I /super/pools
++ and to create at least one pool directory there.
++ Typically it will be sufficient to use
++ .sC
++ mkd /super/pools
++ get /super/pool | put /super/pools/public
++ .eC
+  .IP "\fB\-u\fP \fIunixroot\fP and \fB\-n\fP"
+  .br
+  Along with the connections to the standard \*(Am directory environment
+***************
+*** 127,133 ****
+  emulation is desired then the
+  .B \-n
+  option should be given.
+! Do not do this unless except in exceptional circumstances.
+  Without
+  .UX
+  emulation it is not possible to run a shell and other basic tools.
+--- 136,142 ----
+  emulation is desired then the
+  .B \-n
+  option should be given.
+! Do not do this except in exceptional circumstances.
+  Without
+  .UX
+  emulation it is not possible to run a shell and other basic tools.
+***************
+*** 140,150 ****
+  is copied to the user's root directory and
+  .I /super/admin/profile
+  is copied to the user's
+! .I home
+! directory .
+  Finally,
+  .I newuser
+  requests an initial password for the new user.
+  .LP
+  The directory structure generated for each user is as follows:
+  .LP
+--- 149,161 ----
+  is copied to the user's root directory and
+  .I /super/admin/profile
+  is copied to the user's
+! .I /home/.profile .
+  Finally,
+  .I newuser
+  requests an initial password for the new user.
++ The old password that it asks for should be the password of the person
++ running
++ .I newuser .
+  .LP
+  The directory structure generated for each user is as follows:
+  .LP
+***************
+*** 227,233 ****
+  .I put
+  and
+  .I get .
+- Under normal circumstances there should not be any, however.
+  .mH
+  Environment Variables
+  .LP
+--- 238,243 ----
+***************
+*** 237,243 ****
+  Example
+  .LP
+  .sC
+! newuser mikhail g -b bullet0 -p /super/pool -g staff
+  .eC
+  will create a new directory structure under
+  .I /super/users/mikhail
+--- 247,253 ----
+  Example
+  .LP
+  .sC
+! newuser mikhail g -b bullet0 -p public -g staff
+  .eC
+  will create a new directory structure under
+  .I /super/users/mikhail
+***************
+*** 246,252 ****
+  access to the public directories and with the pool directory
+  .I /profile/pool
+  being a restricted link to
+! .I /super/pool
+  and with the
+  .UX
+  emulation subgraph from
+--- 256,262 ----
+  access to the public directories and with the pool directory
+  .I /profile/pool
+  being a restricted link to
+! .I /super/pools/public
+  and with the
+  .UX
+  emulation subgraph from
+*** /tmp/mkpatch_SRC2472	Fri Jul 19 15:37:38 1996
+--- src/admin/scripts/newsoapgraph	Fri Jul 19 15:37:37 1996
+***************
+*** 1,6 ****
+  #!/bin/sh
+  #	
+! #	@(#)newsoapgraph	1.13	96/07/12 09:50:14
+  #
+  # Copyright 1996 Vrije Universiteit, The Netherlands.
+  # For full copyright and restrictions on use see the file COPYRIGHT in the
+--- 1,6 ----
+  #!/bin/sh
+  #	
+! #	@(#)newsoapgraph	1.14	96/07/19 15:37:36
+  #
+  # Copyright 1996 Vrije Universiteit, The Netherlands.
+  # For full copyright and restrictions on use see the file COPYRIGHT in the
+***************
+*** 60,65 ****
+--- 60,67 ----
+  mkd super/cap/fifosvr
+  mkd super/hosts
+  mkd super/pool
++ mkd super/pools
++ std_restrict super/pool ff super/pools/public
+  
+  mkd super/module
+  mkd super/module/flex
+*** /tmp/mkpatch_SRC8424	Fri Jul 19 16:29:31 1996
+--- src/admin/ip/ftpd/am_conn.c	Fri Jul 19 16:13:47 1996
+***************
+*** 1,4 ****
+! /*	@(#)am_conn.c	1.1	96/02/27 10:13:45 */
+  #include <stdio.h>
+  #include <amoeba.h>
+  #include <semaphore.h>
+--- 1,4 ----
+! /*	@(#)am_conn.c	1.2	96/07/19 16:13:33 */
+  #include <stdio.h>
+  #include <amoeba.h>
+  #include <semaphore.h>
+***************
+*** 45,52 ****
+--- 45,54 ----
+  #define dbprintf(list)	printf list
+  
+  
++ /* The next two are kept in network byte order! */
+  ipaddr_t  data_dest_addr;
+  tcpport_t data_dest_port;
++ 
+  static tcpconn *Default_tcpconn;
+  static capability TcpSvrCap;
+  
+***************
+*** 535,543 ****
+      }
+      dprintf(("net_create_conn, tcpip_open: %s\n", ar_cap(&chancap)));
+  
+!     /* tcpconf.nwtc_locport = htons(data_dest_port); ? */
+!     tcpconf.nwtc_remport = htons(data_dest_port);
+!     tcpconf.nwtc_remaddr = htonl(data_dest_addr);
+      tcpconf.nwtc_flags = NWTC_EXCL|NWTC_LP_SEL|NWTC_SET_RA|NWTC_SET_RP;
+      if ((err = tcp_ioc_setconf(&chancap, &tcpconf)) != STD_OK) {
+  	fprintf(stderr, "create_conn: TCP/IP setconf failed: %s",
+--- 537,545 ----
+      }
+      dprintf(("net_create_conn, tcpip_open: %s\n", ar_cap(&chancap)));
+  
+!     /* tcpconf.nwtc_locport = data_dest_port; ? */
+!     tcpconf.nwtc_remport = data_dest_port;
+!     tcpconf.nwtc_remaddr = data_dest_addr;
+      tcpconf.nwtc_flags = NWTC_EXCL|NWTC_LP_SEL|NWTC_SET_RA|NWTC_SET_RP;
+      if ((err = tcp_ioc_setconf(&chancap, &tcpconf)) != STD_OK) {
+  	fprintf(stderr, "create_conn: TCP/IP setconf failed: %s",

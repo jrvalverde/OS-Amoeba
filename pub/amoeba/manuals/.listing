@@ -1,0 +1,12 @@
+total 11354
+drwxrwxr-x   2 ast      infstaff     512 Jun 20  2000 .
+drwxrwxr-x   5 ast      amoeba       512 Jun 20  2000 ..
+-rw-rw-r--   1 versto   infstaff     991 Jun 20  2000 READ_ME
+-rw-rw-r--   1 versto   infstaff 1313711 Jun 20  2000 pro.pdf
+-rw-r--r--   1 108      staff     828094 Apr 11  1996 pro.ps.Z
+-rw-rw-r--   1 versto   infstaff  141068 Jun 20  2000 rel.pdf
+-rw-r--r--   1 108      staff      83093 Apr 11  1996 rel.ps.Z
+-rw-rw-r--   1 versto   infstaff  984413 Jun 20  2000 sys.pdf
+-rw-r--r--   1 108      staff     547258 Apr 11  1996 sys.ps.Z
+-rw-rw-r--   1 versto   infstaff 1254571 Jun 20  2000 usr.pdf
+-rw-r--r--   1 108      staff     560412 Apr 11  1996 usr.ps.Z

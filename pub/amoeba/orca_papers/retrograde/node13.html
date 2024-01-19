@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>5.1 Awari</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="5.1 Awari">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00051000000000000000>5.1 Awari</A></H2>
+<P>
+Awari is played on a board with 12 pits.
+Each of the two players owns half of the pits (see Figure <A HREF="node13.html#awari">2</A>).
+Initially, each pit contains 4 stones,
+so in total there are 48 (identical) stones.
+The goal of the game is to capture as many stones as possible.
+A player makes a move by selecting a non-empty pit owned by him or her
+and <em> sowing</em> all stones from this pit counter clockwise,
+dropping one stone in each consecutive pit.
+If the last pit to which a stone is added is owned by the opponent
+and now contains 2 or 3 stones, these stones are <em> captured</em>. If the
+preceding pit is also owned by the opponent and contains
+2 or 3 stones, these are also captured, and the capture rule is
+applied recursively to this pit.
+An example is shown in the right part of Figure <A HREF="node13.html#awari">2</A>,
+where South captures
+2 stones by sowing from Pit E.
+Additional rules exist, but these will not be discussed here.
+<P>
+<P><A NAME=173>&#160;</A><A NAME=awari>&#160;</A><IMG  ALIGN=BOTTOM ALT="" SRC="img3.gif">
+<BR><STRONG>Figure 2:</STRONG> Example board positions from awari. Player South
+	sows the 5 stones in Pit E and captures 2 stones from Pit d.<BR>
+<P>
+<P>
+An endgame database for awari contains the game-theoretical value
+for all positions containing up to a maximum number of stones.
+Even though awari may look simple, its search space is enormous.
+For the entire game, the database would contain 1400 billion entries.
+
+<P>
+If the maximum number of stones is <em> S</em>, the game-theoretical value
+lies between <b>-S</b> and <b>S</b>, so there are <IMG  ALIGN=MIDDLE ALT="" SRC="img4.gif"> different values.
+Our program uses a minimal number of bits per entry to represent
+the game-theoretical value.
+For example, the 17-stones database uses 6 bits per entry.
+As there are 51,895,935 entries in this database, the
+disk space required to store it is about 38 Mbytes.
+<P>
+Our algorithm uses two additional fields per entry (see Figure <A HREF="node18.html#entrydecl">4</A>).
+For awari, these two fields can be encoded with 3 additional bits.
+For the 17-stone database,
+we thus use 9 bits of internal memory for each position, or 57 Mbytes
+of total internal memory.
+<P>
+The sequential code of the program spends most of its time
+computing the unmove function and converting between positions and
+database addresses.
+The unmove function must compute, for a given position <em> P</em>, all possible
+positions that can lead to <em> P</em> through either a normal move or
+a capture move. In the latter case, the unmove function has to add
+stones to the board.  The unmove function for awari is quite complicated,
+since the capture rules are complicated.
+<P>
+The address conversion routines must be able to determine the index in the
+database of a given position and vice versa.
+For this purpose, we use the simple G&#246;del coding scheme described
+in [<A HREF="node17.html#Allis1991">1</A>].
+This scheme lexicographically orders all positions, based on the number
+of stones in each pit.
+The index (G&#246;del number) for a position is the number of positions
+preceding it in this ordering. This number can be computed using
+precalculated binomial coefficients.
+The inverse operation (determining a position from its index) can
+be done in a similar way.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

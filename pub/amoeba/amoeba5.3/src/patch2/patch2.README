@@ -1,0 +1,16 @@
+
+		PATCH 2
+
+This patch makes the following changes:
+
+	1. Fixes newsoapgraph(A)
+	2. Fixes a problem with the ftp daemon for the i80386
+
+patch2.README	- this file
+patch2.files	- the list of files affected by the patch
+patch2		- the diffs to make the patch
+
+Apply the diffs using the following commands:
+
+	cd `amdir`
+	patch -N < patch2

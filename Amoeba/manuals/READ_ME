@@ -1,0 +1,17 @@
+This directory  contains the manuals for Amoeba.
+The manuals now consist of only 4 files.
+
+rel.ps.Z	Release Notes (~ 35 pages)
+pro.ps.Z	Programming Guide (~ 450 pages)
+sys.ps.Z	System Administration Guide (~ 250 pages)
+usr.ps.Z	User Guide (~ 315 pages)
+
+The following is a sum of all the files in the documentation directory
+Please check that the copies you have obtained have the same sums by
+running the command
+	sum *.Z
+
+50431   826 pro.ps.Z
+05291    74 rel.ps.Z
+19719   500 sys.ps.Z
+53135   510 usr.ps.Z

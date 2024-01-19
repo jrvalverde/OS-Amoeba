@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>2.1 Assumptions</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="2.1 Assumptions">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H2><A NAME=SECTION00021000000000000000>2.1 Assumptions</A></H2>
+<P>
+<A NAME=assumption>&#160;</A>
+<P>
+We assume that we create an endgame database for a two-player zero-sum game
+with perfect information, and that the value of each game is an integer
+between <b>-N</b> and <b>N</b>. The value of a game is based on the value of the end
+position of the game, and points the players may have accumulated during the
+game (by making moves which are worth a specified number of points).
+In awari and go, a player can score points during the game, by capturing
+stones. In chess and checkers, the value of the game is based solely on the
+end position; the value can be a win (1) draw (0), or loss(<b>-1</b>), so <b>N = 1</b>.
+<P>
+For each legal game position we would like to calculate the best score
+obtainable for the player to move. For non-end positions, the score is based
+on the values of its children and on the values of the moves leading to
+those children. Let us suppose that in the current position, <b>P</b>, the only
+legal move leads to a position, <b>Q</b>, with value <b>k</b>. As in <b>Q</b> the opponent
+is to move, this means that the opponent can win in <b>Q</b> by <b>k</b> points.
+From the perspective of the player to move in <b>P</b>, this is equivalent to
+a value of <b>-k</b>.               
+If the move from <b>P</b> to <b>Q</b> scores <b>x</b> points,
+then the total value obtainable through this move is <b>-k+x</b>. Thus, when knowing
+the values of all children of a position, and the values of all moves leading
+to those children, we can calculate the value of the position.
+Furthermore, we assume that if the game gets into
+a cycle (repetition of positions),
+the game is a draw (i.e., both players are awarded 0 points).
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95.1 (Fri Jan 20 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>6 Discussion and Related Work</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="6 Discussion and Related Work">
+<meta name="keywords" value="sc95">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <H1><A NAME=SECTION00060000000000000000>6 Discussion and Related Work</A></H1>
+<P>
+<A NAME=discussion>&#160;</A>
+<P>
+We have designed and implemented a parallel algorithm for
+performing retrograde analysis on a distributed system.
+Retrograde analysis is a useful AI search technique, which has
+been used successfully to compute endgame databases for several games.
+If the game's search space is large, RA requires a huge amount
+of CPU time and internal memory. Therefore, parallelism
+and distribution improve the applicability of the technique.
+<P>
+We parallelize RA by partitioning the database among the
+available processors.
+In the paper, we have studied the problems with this approach and
+solutions to these problems.
+Foremost, the communication overhead of a distributed parallel RA
+algorithm is potentially excessive, but we have shown that the amount
+of communication can be reduced drastically using message combining.
+<P>
+Another severe problem is load balancing. A good solution to this problem
+is to give each processor the same number of entries, while making sure
+that the distribution is random. A regular pattern in the distribution
+easily leads to load imbalance.
+As a result of this randomization, there is no locality in the distribution.
+In other words, the distribution does not try to cluster parent and child
+nodes on the same processor, which might reduce communication overhead.
+Our work shows that randomization is very important
+for this application. Moreover, clustering nodes would be a game-specific
+optimization, whereas all our current optimizations do not
+depend on the underlying game.
+<P>
+We have given performance measurements for an example game, awari.
+For large databases, our RA program for awari achieves
+a speedup of 48 on 64 processors, even though we use
+a slow network (Ethernet).
+For example, a 17-stone database (with over 51 million entries) could
+be computed in 50 minutes on 64 processors,
+whereas the same problem took almost 40 hours on a single processor.
+<P>
+Earlier research on parallel RA includes
+the work by Stiller [<A HREF="node17.html#Stiller1989">10</A>], who has computed
+endgame databases for chess.
+His program is designed for a SIMD machine (a CM-2), making it hard
+to compare with our work.
+The work closest to ours is that by Lake <em> et al.</em> [<A HREF="node17.html#Schaeffer1993">7</A>],
+who have used a collection of workstations to compute endgame databases
+for checkers.
+Their work uses the irreversibility of some moves to partition the databases
+into smaller pieces that can be computed independently (and thus in parallel).
+So, they use more coarse-grained parallelism.
+Also, their work uses caching techniques and optimizes locality of references.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+Henri Bal and Victor Allis
+</ADDRESS>
+</BODY>

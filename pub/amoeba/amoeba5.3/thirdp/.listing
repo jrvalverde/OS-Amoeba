@@ -1,0 +1,22 @@
+total 146284
+drwxrwxr-x   3 versto   infstaff     512 Feb 12  2001 .
+drwxrwxr-x   9 versto   infstaff     512 Apr  7  1998 ..
+-rw-rw-r--   1 versto   infstaff    1943 May 18  1999 README
+-rw-r--r--   1 versto   infstaff 7282800 Nov 29  1996 Ugnu.tar.Z
+-rw-rw-r--   1 versto   infstaff 2719963 May 11  1999 X11R6-src.am.tar.gz
+-rw-rw-r--   1 versto   infstaff 33502058 Oct 27  1998 X11R6-src.tar.gz
+-rw-rw-r--   1 versto   infstaff   56988 Apr 27  2000 binutils-2.0-patch.tar.Z
+-rw-rw-r--   1 versto   infstaff 5481095 Sep  5  1997 gcc.am.tar.Z
+drwxrwxr-x   2 versto   infstaff     512 Sep  1  1997 gcc.i386
+-rw-r--r--   1 versto   amoeba   5609157 Feb 12  2001 gdb-4.11-amoeba.tar.Z
+-rw-rw-r--   1 versto   infstaff  206913 Nov 11  1997 gnu-ar.i386.Z
+-rw-r--r--   1 versto   infstaff  175033 Apr 12  1996 grep-2.0.tar.Z
+-rw-r--r--   1 versto   infstaff  259989 Apr 12  1996 mawk.Z
+-rw-r--r--   1 versto   infstaff  393580 Apr 12  1996 minix.Z
+-rw-r--r--   1 versto   infstaff 3862744 Mar 26  1996 mmdf.tar.Z
+-rw-r--r--   1 versto   infstaff   80681 Apr 12  1996 mtools20.am.tar.Z
+-rw-rw-r--   1 versto   infstaff 7082303 Nov 13  1997 orca.tar.Z.old
+-rw-rw-r--   1 ceriel   infstaff 4753666 May 18  1999 orca.tar.gz
+-rw-r--r--   1 versto   infstaff   75591 Apr 12  1996 patch.Z
+-rw-r--r--   1 versto   infstaff 2424499 Apr 12  1996 python.tar.Z
+-rw-r--r--   1 versto   infstaff  724273 Apr 12  1996 tcsh-6.04.tar.Z
